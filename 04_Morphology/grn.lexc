@@ -1,0 +1,7 @@
+Multichar_Symbols
+
+%<n%>                ! Nombre
+
+LEXICON Root
+
+ava%<n%>:ava # ; ! "raza, gente"
