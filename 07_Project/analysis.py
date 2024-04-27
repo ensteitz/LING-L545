@@ -93,37 +93,3 @@ plt.savefig("hourly_sentiment_analysis.png")
 
 plt.show()
 
-'''
-    # Group by hour and compute the mean sentiment score
-    hourly_avg_sentiment = comments.groupby('hour')['sentiment_score'].mean().reset_index()
-
-    # Initialize a DataFrame with all hours
-    all_hours = pd.DataFrame({'hour': pd.date_range(start='2023-10-08 06:00:00', end='2023-10-09 05:00:00', freq='h').strftime('%H').astype(int)})
-
-
-    # Merge hourly_avg_sentiment with all_hours
-    hourly_avg_sentiment = pd.merge(all_hours, hourly_avg_sentiment, on='hour', how='left')
-
-
-    monthly_avg_sentiment = all_months.merge(monthly_avg_sentiment, on='month', how='left')
-
-    # Replace NaN values with 0
-    monthly_avg_sentiment['sentiment_score'] = monthly_avg_sentiment['sentiment_score'].fillna(0)
-
-
-    sns.set_style('whitegrid')
-    sns.barplot(x='month', y='sentiment_score', data=monthly_avg_sentiment)
-
-
-    return hourly_avg_sentiment
-
-hourly_avg_sentiment = sentiment(comments)
-print(hourly_avg_sentiment)
-print("look right above")
-
-# Make a pandas dataframe
-fig, axs = plt.subplots(figsize=(12, 4))
-
-comments.groupby([comments["author"], "time_of_day"]), ["sentiment_score"].mean()
-
-'''
