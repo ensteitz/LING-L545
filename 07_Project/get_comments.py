@@ -17,13 +17,14 @@ attributes_dict = { "id":[],
         "parent_id": []}
 
 # Specify which submission will be analyzed
-submission = reddit.submission("1bk96ug")
+# This is the post titled "I have changed my mind about the Israel-Palestine conflict. Have you?"
+submission = reddit.submission("172w9gt")
 
 # Avoid the 'MoreComments' common error
 submission.comments.replace_more(limit=None)
 
 # Create a variable to store the text of the reddit post (comments and replies)
-f = open("reddit_body.txt", "w")
+f = open("comments.txt", "w")
 
 test_c = 0
 
@@ -52,24 +53,13 @@ for comment in submission.comments.list():
 		attributes_dict["parent_id"].append(reply.parent().id)  # Store the parent comment ID
 		test_r = test_r + 1
 		print(reply.body, file=f)
-
 print(test_c)
 print(test_r)
-
-# Remove duplicates
-# unique_lines = []
-# with open('reddit_body.txt', 'r') as f:
-#	for line in f.readlines():
-#		if line in attributes_dict: continue
-#		attributes_dict.append(line)
-#with open('reddit_body_clean.txt', 'w') as f:
-#	f.writelines(attributes_dict)
 
 # Create a dataframe
 attributes_data = pd.DataFrame(attributes_dict)
 
 def get_date(created):
-	#return dt.fromtimestamp(created)
 	return dt.fromtimestamp(created)
 
 attributes_data["timestamp"] = attributes_data["created"].apply(get_date)
@@ -79,14 +69,14 @@ print(attributes_data)
 # Close the file
 f.close()
 
-# Export the data to a csv file for visualization
-# cip stands for comments in post
-attributes_data.to_csv('cip_PRAWreddit.csv', index=False)
+# Export the data to a csv file
+# The csv file will then go through cleaning, so this is just the initial data csv file
+attributes_data.to_csv('df_comments.csv', index=False)
 
 
 
 
-
+# This file was renamed from reddit_data545.py
 
 
 
