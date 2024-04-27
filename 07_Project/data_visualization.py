@@ -38,13 +38,17 @@ print(df.info())  # Get information about the DataFrame
 # Data Visualization
 
 # 1. Bar Plot: Number of Comments by Time of Day
-sns.countplot(x='time_of_day', data=df)
+# Create a list of the time of day categories in the desired order
+time_of_day_order = ["Early Morning", "Morning", "Afternoon", "Evening", "Night"]
+# Number of Comments by Time of Day with specified order
+sns.countplot(x='time_of_day', data=df, order=time_of_day_order)
 plt.title('Number of Comments by Time of Day')
 plt.xlabel('Time of Day')
 plt.ylabel('Number of Comments')
 plt.xticks(rotation=45)  # Rotate x-axis labels for better readability
 plt.savefig('comments_by_time_of_day.png')  # Save the plot as an image file
 plt.close()
+
 
 # 2. Histogram: Distribution of Upvotes
 sns.histplot(df['upvotes'], bins=20)
