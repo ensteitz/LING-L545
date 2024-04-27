@@ -1,11 +1,37 @@
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
-import ast
+import ast  # Import ast module to handle string to dictionary conversion
 plt.rcParams['lines.markersize'] = 2
+
 
 # Load the CSV file into a DataFrame
 df = pd.read_csv("df_sa_extralabels_clean_comments.csv")
+
+# Convert the string representation of sentiment scores to dictionaries
+df["sentiment_scores"] = df["sentiment_scores"].apply(ast.literal_eval)
+
+# Create a new column "compound_score" by extracting the "compound" value from "sentiment_scores"
+df["compound_score"] = df["sentiment_scores"].apply(lambda x: x["compound"])
+
+# Extend the data frame
+
+def categorize_sentiment(score):
+    if score >= 0.05:
+        return 'Positive'
+    elif score <= -0.05:
+        return 'Negative'
+    else:
+        return 'Neutral'
+
+# Apply the categorize_sentiment function to create a new column 'sentiment_category'
+df['sentiment_category'] = df['compound_score'].apply(lambda x: categorize_sentiment(x))
+
+# Save the updated DataFrame with the new column
+df.to_csv("df_sa_extra_extralabels_clean_comments.csv", index=False)
+
+print(df)
+
 
 # Data Exploration
 print(df.head())  # Check the first few rows of the DataFrame
@@ -58,34 +84,49 @@ plt.ylabel('Sentiment Score')
 plt.savefig('upvotes_vs_sentiment_score.png')  # Save the plot as an image file
 plt.close()
 
-# 4.5 Scatter Plot: Upvotes vs. Compound Sentiment Score
-import ast  # Import ast module to handle string to dictionary conversion
-
-# Load the CSV file into a DataFrame
-comments = pd.read_csv("df_sa_extralabels_clean_comments.csv")
-
-# Convert the string representation of sentiment scores to dictionaries
-comments["sentiment_scores"] = comments["sentiment_scores"].apply(ast.literal_eval)
-
-# Create a new column "compound_score" by extracting the "compound" value from "sentiment_scores"
-comments["compound_score"] = comments["sentiment_scores"].apply(lambda x: x["compound"])
-
-# Scatter Plot: Upvotes vs. Compound Sentiment Score
-sns.scatterplot(x='upvotes', y='compound_score', data=comments)
-plt.title('Upvotes vs. Compound Sentiment Score')
-plt.xlabel('Upvotes')
-plt.xlim(-15,20)
-plt.ylabel('Compound Sentiment Score')
-plt.savefig('upvotes_vs_compound_sentiment_score.png')  # Save the plot as an image file
-plt.close()
-
 # 5. Pair Plot: Pairwise Relationships
 sns.pairplot(df[['upvotes', 'hour', 'sentiment_scores']])
 plt.title('Pairwise Relationships')
 plt.savefig('pairwise_relationships.png')  # Save the plot as an image file
 plt.close()
 
+# 6. Scatter Plot: Upvotes vs. Compound Sentiment Scores
+sns.scatterplot(x='compound_scores', y='upvotes', data=df)
+plt.title('Upvotes vs. Compound Sentiment Score')
+plt.xlabel('Compound Sentiment Scores')
+plt.xlim(-1,1)
+plt.ylabel('Upvotes')
+plt.ylim(-15, 20)
+plt.savefig('upvotes_vs_compound_sentiment_score.png')  # Save the plot as an image file
+plt.close()
 
+# Extra Plot: Bar Plot of Sentiment Category
+sns.countplot(x='sentiment_category', data=df)
+plt.title('Number of Comments by Sentiment Category')
+plt.xlabel('Sentiment Category')
+plt.ylabel('Number of Comments')
+plt.savefig('comments_by_sentiment_category.png')  # Save the plot as an image file
+plt.close()
+
+'''
+# Extend the data frame
+
+def categorize_sentiment(score):
+    if score >= 0.05:
+        return 'Positive'
+    elif score <= -0.05:
+        return 'Negative'
+    else:
+        return 'Neutral'
+
+# Apply the categorize_sentiment function to create a new column 'sentiment_category'
+comments['sentiment_category'] = comments['compound_score'].apply(lambda x: categorize_sentiment(x))
+
+# Save the updated DataFrame with the new column
+comments.to_csv("df_sa_extra_extralabels_clean_comments.csv", index=False)
+
+print(comments)
+'''
 
 
 '''
