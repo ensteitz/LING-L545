@@ -40,7 +40,7 @@ print(df.info())  # Get information about the DataFrame
 # 1. Bar Plot: Number of Comments by Time of Day
 # Create a list of the time of day categories in the desired order
 time_of_day_order = ["Early Morning", "Morning", "Afternoon", "Evening", "Night"]
-plt.figure(figsize=(10, 6))
+plt.figure(figsize=(10, 8))
 # Number of Comments by Time of Day with specified order
 sns.countplot(x='time_of_day', data=df, order=time_of_day_order)
 plt.title('Number of Comments by Time of Day')
