@@ -27,9 +27,6 @@ print(comments["timestamp"].max() - comments["timestamp"].min())
 
 comments["hour"] = comments["timestamp"].dt.hour
 
-print(comments.head())
-
-
 def categorize_time_of_day(hour):
     if hour < 6:
         return "Early Morning"
