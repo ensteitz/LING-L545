@@ -1,9 +1,9 @@
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
-import ast  # Import ast module to handle string to dictionary conversion
-plt.rcParams['lines.markersize'] = 2
+import ast
 
+plt.rcParams['lines.markersize'] = 2
 
 # Load the CSV file into a DataFrame
 df = pd.read_csv("df_sa_extralabels_clean_comments.csv")
@@ -15,11 +15,10 @@ df["sentiment_scores"] = df["sentiment_scores"].apply(ast.literal_eval)
 df["compound_score"] = df["sentiment_scores"].apply(lambda x: x["compound"])
 
 # Extend the data frame
-
 def categorize_sentiment(score):
-    if score >= 0.05:
+    if score >= 0.25:
         return 'Positive'
-    elif score <= -0.05:
+    elif score <= -0.25:
         return 'Negative'
     else:
         return 'Neutral'
@@ -31,7 +30,6 @@ df['sentiment_category'] = df['compound_score'].apply(lambda x: categorize_senti
 df.to_csv("df_sa_extra_extralabels_clean_comments.csv", index=False)
 
 print(df)
-
 
 # Data Exploration
 print(df.head())  # Check the first few rows of the DataFrame
@@ -75,26 +73,11 @@ plt.xticks(rotation=45)  # Rotate x-axis labels for better readability
 plt.savefig('upvotes_by_time_of_day.png')  # Save the plot as an image file
 plt.close()
 
-# 4. Scatter Plot: Upvotes vs. Sentiment Score
-sns.scatterplot(x='upvotes', y='sentiment_scores', data=df)
-plt.title('Upvotes vs. Sentiment Score')
-plt.xlabel('Upvotes')
-plt.xlim(-10, 30)
-plt.ylabel('Sentiment Score')
-plt.savefig('upvotes_vs_sentiment_score.png')  # Save the plot as an image file
-plt.close()
-
-# 5. Pair Plot: Pairwise Relationships
-sns.pairplot(df[['upvotes', 'hour', 'sentiment_scores']])
-plt.title('Pairwise Relationships')
-plt.savefig('pairwise_relationships.png')  # Save the plot as an image file
-plt.close()
-
-# 6. Scatter Plot: Upvotes vs. Compound Sentiment Scores
-sns.scatterplot(x='compound_scores', y='upvotes', data=df)
+# 4. Scatter Plot: Upvotes vs. Compound Sentiment Scores
+sns.scatterplot(x='compound_score', y='upvotes', data=df)
 plt.title('Upvotes vs. Compound Sentiment Score')
 plt.xlabel('Compound Sentiment Scores')
-plt.xlim(-1,1)
+plt.xlim(-1, 1)
 plt.ylabel('Upvotes')
 plt.ylim(-15, 20)
 plt.savefig('upvotes_vs_compound_sentiment_score.png')  # Save the plot as an image file
@@ -108,73 +91,9 @@ plt.ylabel('Number of Comments')
 plt.savefig('comments_by_sentiment_category.png')  # Save the plot as an image file
 plt.close()
 
-'''
-# Extend the data frame
+# Sentiment counts for the 'sentiment_category'
+sentiment_counts = df['sentiment_category'].value_counts()
 
-def categorize_sentiment(score):
-    if score >= 0.05:
-        return 'Positive'
-    elif score <= -0.05:
-        return 'Negative'
-    else:
-        return 'Neutral'
+# Print the counts
+print(sentiment_counts)
 
-# Apply the categorize_sentiment function to create a new column 'sentiment_category'
-comments['sentiment_category'] = comments['compound_score'].apply(lambda x: categorize_sentiment(x))
-
-# Save the updated DataFrame with the new column
-comments.to_csv("df_sa_extra_extralabels_clean_comments.csv", index=False)
-
-print(comments)
-'''
-
-
-'''
-import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
-
-# Load the CSV file into a DataFrame
-df = pd.read_csv("df_sa_extralabels_clean_comments.csv")
-
-# Data Exploration
-print(df.head())  # Check the first few rows of the DataFrame
-print(df.info())  # Get information about the DataFrame
-
-# Data Visualization
-
-# 1. Bar Plot: Number of Comments by Time of Day
-sns.countplot(x='time_of_day', data=df)
-plt.title('Number of Comments by Time of Day')
-plt.xlabel('Time of Day')
-plt.ylabel('Number of Comments')
-plt.xticks(rotation=45)  # Rotate x-axis labels for better readability
-plt.show()
-
-# 2. Histogram: Distribution of Upvotes
-sns.histplot(df['upvotes'], bins=20)
-plt.title('Distribution of Upvotes')
-plt.xlabel('Upvotes')
-plt.ylabel('Frequency')
-plt.show()
-
-# 3. Box Plot: Upvotes by Time of Day
-sns.boxplot(x='time_of_day', y='upvotes', data=df)
-plt.title('Upvotes by Time of Day')
-plt.xlabel('Time of Day')
-plt.ylabel('Upvotes')
-plt.xticks(rotation=45)  # Rotate x-axis labels for better readability
-plt.show()
-
-# 4. Scatter Plot: Upvotes vs. Sentiment Score
-sns.scatterplot(x='upvotes', y='sentiment_scores', data=df)
-plt.title('Upvotes vs. Sentiment Score')
-plt.xlabel('Upvotes')
-plt.ylabel('Sentiment Score')
-plt.show()
-
-# 5. Pair Plot: Pairwise Relationships
-sns.pairplot(df[['upvotes', 'hour', 'sentiment_scores']])
-plt.title('Pairwise Relationships')
-plt.show()
-'''
