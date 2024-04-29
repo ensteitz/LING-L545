@@ -24,8 +24,9 @@ In this step, some of the data in the text file was segmented: each sentence is 
 
 This was done through the command line:
 1. sed '/a-zA-Z/!d' \< mod_comments.txt \> mod2\_comments.txt
-2. sed '/\[deleted\]/d' \< mod2_comments.txt \> mod3\_comments.txt
-3. sed '/[^https:\/\/.*/d' \< mod3\_comments.txt \> mod4\_comments.txt
+2. sed '/\\[deleted\\]/d' \< mod2_comments.txt \> mod3\_comments.txt
+3. sed '/[^https:\\/\\/.*]/d' \< mod3\_comments.txt \> clean\_comments.txt
+The result is a TXT file that puts each sentence on a new line for sentiment analysis and deletes hyperlinks.
 
 ## Sentiment Analysis:
 Using VADER, sentiment analysis was performed on the text scraped from the original Reddit post.
