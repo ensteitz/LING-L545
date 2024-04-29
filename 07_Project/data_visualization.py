@@ -5,13 +5,13 @@ import ast
 
 plt.rcParams['lines.markersize'] = 2
 
-# Load the CSV file into a DataFrame
+# Load the CSV file into a data frame
 df = pd.read_csv("df_sa_extralabels_clean_comments.csv")
 
 # Convert the string representation of sentiment scores to dictionaries
 df["sentiment_scores"] = df["sentiment_scores"].apply(ast.literal_eval)
 
-# Create a new column "compound_score" by extracting the "compound" value from "sentiment_scores"
+# Create a new column "compound_score" by taking out the "compound" value from "sentiment_scores"
 df["compound_score"] = df["sentiment_scores"].apply(lambda x: x["compound"])
 
 # Extend the data frame
@@ -23,10 +23,10 @@ def categorize_sentiment(score):
     else:
         return 'Neutral'
 
-# Apply the categorize_sentiment function to create a new column 'sentiment_category'
+# Assign the nrw column 'sentiment_category'
 df['sentiment_category'] = df['compound_score'].apply(lambda x: categorize_sentiment(x))
 
-# Save the updated DataFrame with the new column
+# Save the updated data frame with the new column
 df.to_csv("df_sa_extra_extralabels_clean_comments.csv", index=False)
 
 print(df)
@@ -38,8 +38,9 @@ print(df.info())  # Get information about the DataFrame
 # Data Visualization
 
 # 1. Bar Plot: Number of Comments by Time of Day
-# Create a list of the time of day categories in the desired order
 time_of_day_order = ["Early Morning", "Morning", "Afternoon", "Evening", "Night"]
+# Since the data was taken over a 24-hour window,
+# These times were chosen to get a better picture of the 24 hour time frame
 plt.figure(figsize=(10, 8))
 # Number of Comments by Time of Day with specified order
 sns.countplot(x='time_of_day', data=df, order=time_of_day_order)
@@ -97,9 +98,13 @@ plt.ylabel('Number of Comments')
 plt.savefig('comments_by_sentiment_category.png')  # Save the plot as an image file
 plt.close()
 
+
+# Some of these are wonky still... I just wanted to play around with data visualization.
+
 # Sentiment counts for the 'sentiment_category'
 sentiment_counts = df['sentiment_category'].value_counts()
 
 # Print the counts
 print(sentiment_counts)
 
+# The result should be a table with the sentiment counts
