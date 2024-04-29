@@ -42,7 +42,6 @@ time_of_day_order = ["Early Morning", "Morning", "Afternoon", "Evening", "Night"
 # Since the data was taken over a 24-hour window,
 # These times were chosen to get a better picture of the 24 hour time frame
 plt.figure(figsize=(10, 8))
-# Number of Comments by Time of Day with specified order
 sns.countplot(x='time_of_day', data=df, order=time_of_day_order)
 plt.title('Number of Comments by Time of Day')
 plt.xlabel('Time of Day')

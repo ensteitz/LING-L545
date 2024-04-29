@@ -4,13 +4,13 @@ For my project, I wanted to merge text encoding and segmentation with data scrap
 
 ## Collecting the data:
 To begin, I coded "get _ comments.py" to scrape data from this url: 
- - https://www.reddit.com/r/IsraelPalestine/comments/172w9gt/i_have_changed_my_mind_about_the_israelpalestine/?sort=new
+ - [Link] (https://www.reddit.com/r/IsraelPalestine/comments/172w9gt/i_have_changed_my_mind_about_the_israelpalestine/?sort=new)
  - this outputs the files df_comments.csv
 
 
 ## Cleaning the data:
 From there, I went about cleaning the CSV file. This is done in clean_csv.py
- - this outputs the file '''df_clean_comments.csv'''
+ - this outputs the file '''df\_clean\_comments.csv'''
  - this code removes unnecessary lines from the data such as hyperlinks, AutoModerator comments, and empty lines.
 The output is a file called df_clean_comments.csv
 
@@ -24,3 +24,7 @@ The text file is
 
 ## Sentiment Analysis:
 Using VADER, sentiment analysis was performed on the text scraped from the original Reddit post.
+
+
+## Data Visualization
+PNGs of data visualization models are included in this folder. The most important ones are the Upvotes vs Compound Sentiment Score, Comments by Time of Day, and Comments by Sentiment Category.
