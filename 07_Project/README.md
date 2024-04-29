@@ -31,12 +31,16 @@ The result is a TXT file that puts each sentence on a new line for sentiment ana
 ## Data Analysis:
 I then ran a few data analysis measures on the CSV file. This adds two columns to the CSV: sentiment\_score and time\_of\_day. These were added to make data visualization easier in the last step.
 A couple of other measures were computed:
-1. The maximum number of upvotes
-2. The maximum number of downvotes
-3. 
+1. The timestamp for the first comment.
+2. The timestamp for the last comment.
+3. The amount of time that passed between the first and last comment accepted on the submission before being locked.
+4. The count for the most upvotes on one comment. 
+5. The count for the most downvotes on one comment.
+
+These counts are shown if you run analysis.py. You will also get a visual of the data frame. 
 
 ## Sentiment Analysis:
-Using VADER, sentiment analysis was performed on the text scraped from the original Reddit post. This was done through the file vader\_sa.py. The results were stored in the files sa\_clean\_comments.txt and 
+Using VADER, sentiment analysis was performed on the text scraped from the original Reddit post. This was done through the file vader\_sa.py. The results were stored in the files sa\_clean\_comments.txt and df\_sa\_extralabels\_clean\_comments.csv. This resulted in new columns to the CSV with the compount sentiment scores for each comment.
 
 
 ## Data Visualization
