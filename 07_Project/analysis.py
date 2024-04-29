@@ -99,7 +99,7 @@ sns.barplot(x='hour', y='sentiment_score', data=hourly_avg_sentiment)
 plt.xlabel("Hour of the Day")
 plt.ylabel("Sentiment Score")
 plt.ylim(-1,1)
-plt.title("Hourly Sentiment Analysis")
+plt.title("Averaged Sentiment Analysis by Hour")
 
 plt.savefig("hourly_sentiment_analysis.png")
 
