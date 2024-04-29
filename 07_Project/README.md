@@ -28,8 +28,15 @@ This was done through the command line:
 3. sed '/[^https:\\/\\/.*]/d' \< mod3\_comments.txt \> clean\_comments.txt
 The result is a TXT file that puts each sentence on a new line for sentiment analysis and deletes hyperlinks.
 
+## Data Analysis:
+I then ran a few data analysis measures on the CSV file. This adds two columns to the CSV: sentiment\_score and time\_of\_day. These were added to make data visualization easier in the last step.
+A couple of other measures were computed:
+1. The maximum number of upvotes
+2. The maximum number of downvotes
+3. 
+
 ## Sentiment Analysis:
-Using VADER, sentiment analysis was performed on the text scraped from the original Reddit post.
+Using VADER, sentiment analysis was performed on the text scraped from the original Reddit post. This was done through the file vader\_sa.py. The results were stored in the files sa\_clean\_comments.txt and 
 
 
 ## Data Visualization
