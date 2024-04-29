@@ -1,9 +1,9 @@
 # Final Project
 
-For my project, I wanted to merge text encoding and segmentation with data scraped from a social media platform.
+For my project, I wanted to merge text cleaning and segmentation with data scraped from a social media platform.
 
 ## Collecting the data:
-To begin, I coded "get _ comments.py" to scrape data from this url: 
+To begin, I coded get\_comments.py to scrape data from this url: 
  - [Link] (https://www.reddit.com/r/IsraelPalestine/comments/172w9gt/i_have_changed_my_mind_about_the_israelpalestine/?sort=new)
  - This outputs the files df\_comments.csv and comments.txt
 
@@ -43,5 +43,5 @@ These counts are shown if you run analysis.py. You will also get a visual of the
 Using VADER, sentiment analysis was performed on the text scraped from the original Reddit post. This was done through the file vader\_sa.py. The results were stored in the files sa\_clean\_comments.txt and df\_sa\_extralabels\_clean\_comments.csv. This resulted in new columns to the CSV with the compount sentiment scores for each comment.
 
 
-## Data Visualization
+## Data Visualization:
 PNGs of data visualization models are included in this folder. The most important ones are the Upvotes vs Compound Sentiment Score, Comments by Time of Day, and Comments by Sentiment Category.
