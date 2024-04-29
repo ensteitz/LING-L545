@@ -1,10 +1,10 @@
 import sys
 import pandas as pd
 
-# Assuming df_comments.csv is in the same directory as your Python script
+# Using the data from the newly created csv
 file_path = 'df_comments.csv'
 
-# Read the CSV file into a pandas DataFrame
+# Read the CSV file into a data frame
 df = pd.read_csv(file_path)
 
 #df['body'] = df['body'].str.lstrip('>')
@@ -22,13 +22,13 @@ phrases_to_search = [
 # Create a regular expression pattern to match any of the phrases
 pattern = '|'.join(phrases_to_search)
 
-# Filter the DataFrame to remove rows containing any of the specified phrases
+# Filter to remove rows containing any of the specified phrases
 df_clean = df[~df['body'].str.contains(pattern, case=False, na=False)]
 
-# Save the filtered DataFrame back to a CSV file
+# Save the filtered data frame back to a CSV file
 df_clean.to_csv('df_clean_comments.csv', index=False)
 
-# Optionally, print the filtered DataFrame
+# Print the filtered DataFrame
 print(df_clean)
 
 

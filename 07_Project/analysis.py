@@ -7,14 +7,11 @@ from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
 comments = pd.read_csv("df_clean_comments.csv", parse_dates=["timestamp"])
 
-#gives you the chart so you can see what it looks like now
+# Gives you the chart so you can see what it looks like now
 print(comments.head())
 
 # How many unique comments are there. could be multiple from same person, so this checks
 print(comments.parent_id.unique())
-
-# Or, you can do this one
-print(comments.author.unique())
 
 # See the dates the comments were posted
 print(comments["timestamp"])
@@ -22,11 +19,12 @@ print(comments["timestamp"])
 # When was the first and last comment posted
 print(comments["timestamp"].min(), comments["timestamp"].max())
 
-# how much time passed between the first and last comments
+# How much time passed between the first and last comments
 print(comments["timestamp"].max() - comments["timestamp"].min())
 
 comments["hour"] = comments["timestamp"].dt.hour
 
+# Define a variable to turn the hours the comments were posted into a time of day
 def categorize_time_of_day(hour):
     if hour < 6:
         return "Early Morning"
@@ -39,19 +37,20 @@ def categorize_time_of_day(hour):
     else:
         return "Night"
 
+# Call the variable and add it to the CSV
 comments["time_of_day"] = comments["hour"].apply(categorize_time_of_day)
 print(comments.head())
 
 # Specify a new file path to store the results of these new columns
 output_file_path = "df_extralabels_clean_comments.csv"
 
-# Save the DataFrame to a new CSV file
+# Save the data frame to a new CSV file
 comments.to_csv(output_file_path, index=False)
 
 print(f"DataFrame saved to '{output_file_path}'")
 
 
-# Find out most upvotes and least upvoted comment
+# Find out most upvoted and downvoted comments for fun
 print(comments["upvotes"].max())
 print(comments["upvotes"].min())
 
