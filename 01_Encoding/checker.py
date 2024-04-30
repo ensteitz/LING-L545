@@ -56,5 +56,7 @@ else:
     print(f"{wiki} is not encoded in UTF-8.")
 
 # Process the functions and hopefully get a result
+# Not getting a result.......... grr
+# Fix later
 fix_encoding(wiki, encoded)
 print(f"Unicode characters replaced successfully in {encoded}.")
