@@ -1,3 +1,12 @@
+'''
+This file should be run SECOND for this practical.
+It takes the result of encoding.py ('verified_alphabet_wiki.txt') and then checks to make sure everything is encoded in UTF-8.
+It also fixes any problems with spacing characters.
+The result is a file called 'encoded_wiki.txt'
+
+I made sure to socument the steps well, so it should be very easy to follow.
+'''
+
 import sys
 import re
 
@@ -26,10 +35,10 @@ def fix_encoding(wiki):
     uniform_encoding = [replace_unicode_chars(word) for word in words]
 
     # Don't forget to save the words back in the file
-    with open(wiki, 'w', encoding='utf-8') as file:
+    with open('encoded_wiki.txt', 'w', encoding='utf-8') as file:
         file.write(' '.join(uniform_encoding))
 
-wiki = 'wiki_clean.txt'  # Replace with the actual file path
+wiki = 'verified_alphabet_wiki.txt'  # Replace with the actual file path
 chars_to_replace = [
     "\u00A0", "\u1680", "\u2000", "\u2001", "\u2002",
     "\u2003", "\u2004", "\u2005", "\u2006", "\u2007",

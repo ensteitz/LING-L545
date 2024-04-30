@@ -1,3 +1,8 @@
+'''
+This is the first file that should be ran in this practical, then checker.py
+I made sure to explain my code, so it should be clear. If you have any questions, you can ask me.
+'''
+
 import sys
 import string
 
@@ -6,8 +11,7 @@ alphabet = set("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzÀÈÌÒÙÁ
 
 char_freq = {}
 
-def process_line(line):
-    # In case of error
+def process_line(line, destination):
     valid_line = False
 
     for char in line:
@@ -24,9 +28,10 @@ def process_line(line):
         print(line.strip())
 
 # Open the file in this file. Could have used it as sys.stdin, but I find this easier
-with open("wiki_copy.txt", "r") as f:
-    for line in f:
-        process_line(line)
+with open("wiki.txt", "r") as source, open("verified_alphabet_wiki.txt", "w") as destination:
+    for line in source:
+        process_line(line, destination)
+
 
 # This part took me forever!
 # Should be fixed now
@@ -34,6 +39,6 @@ with open("wiki_copy.txt", "r") as f:
 unknown_chars = sorted(((freq, char) for char, freq in char_freq.items() if char not in alphabet and char not in string.punctuation), reverse=True)
 
 # Now export the buggers
-with open("wiki.valid", "w") as output_file:
+with open("wiki.valid", "w") as f_unknown_chars:
     for freq, char in unknown_chars:
-        output_file.write(f"{freq}\t{char}\n")
+        f_unknown_chars.write(f"{freq}\t{char}\n")
