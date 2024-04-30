@@ -26,7 +26,7 @@ def replace_unicode_chars(word):
             word = word.replace(char, "\u0020")
     return word
 
-def fix_encoding(wiki):
+def fix_encoding(wiki, encoded):
     # Define new function to perform action on opened file, very convenient
     with open(wiki, 'r', encoding='utf-8') as file:
         words = file.read().split()
@@ -35,10 +35,12 @@ def fix_encoding(wiki):
     uniform_encoding = [replace_unicode_chars(word) for word in words]
 
     # Don't forget to save the words back in the file
-    with open('encoded_wiki.txt', 'w', encoding='utf-8') as file:
+    with open(encoded, 'w', encoding='utf-8') as file:
         file.write(' '.join(uniform_encoding))
 
-wiki = 'verified_alphabet_wiki.txt'  # Replace with the actual file path
+wiki = 'verified_alphabet_wiki.txt'
+encoded = 'encoded_wiki.txt'
+
 chars_to_replace = [
     "\u00A0", "\u1680", "\u2000", "\u2001", "\u2002",
     "\u2003", "\u2004", "\u2005", "\u2006", "\u2007",
@@ -54,5 +56,5 @@ else:
     print(f"{wiki} is not encoded in UTF-8.")
 
 # Process the functions and hopefully get a result
-fix_encoding(wiki)
-print("Unicode characters replaced successfully.")
+fix_encoding(wiki, encoded)
+print(f"Unicode characters replaced successfully in {encoded}.")
