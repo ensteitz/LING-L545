@@ -40,7 +40,7 @@ A couple of other measures were computed:
 These counts are shown if you run analysis.py. You will also get a visual of the data frame. 
 
 ## Sentiment Analysis:
-Using VADER, sentiment analysis was performed on the text scraped from the original Reddit post. This was done through the file vader\_sa.py. The results were stored in the files sa\_clean\_comments.txt and df\_sa\_extralabels\_clean\_comments.csv. This resulted in new columns to the CSV with the compount sentiment scores for each comment.
+Using VADER, sentiment analysis was performed on the text scraped from the original Reddit post. This was done through the file vader\_sa.py. The results were stored in the files sa\_clean\_comments.txt and df\_sa\_extralabels\_clean\_comments.csv.
 
 
 ## Data Visualization:
