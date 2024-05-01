@@ -1,4 +1,4 @@
-# Segmentation Practical:
+# Tokenization Practical:
 
 ## Instructions:
 
