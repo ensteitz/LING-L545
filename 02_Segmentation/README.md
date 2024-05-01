@@ -15,7 +15,7 @@ In my language, Sardinian, there were several unique challenges for segmentation
 ## Results:
 I stored the results of this command in the file segmented\_wiki.txt.
 
-If you wanted to store it in a file for yoourself on the command line, please run this line through terminal:
+If you wanted to store it in a file for yourself using the command line, please run this line through terminal:
 
 '''
 cat encoded\_wiki.txt | python3 segmenter.py > segmented\_wiki.txt
