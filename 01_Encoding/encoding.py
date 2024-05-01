@@ -25,7 +25,7 @@ def process_line(line, destination):
 
     # Print the line ONLY IF it contains valid characters
     if valid_line:
-        print(line.strip())
+        destination.write(line)
 
 # Open the file in this file. Could have used it as sys.stdin, but I find this easier
 with open("wiki.txt", "r") as source, open("verified_alphabet_wiki.txt", "w") as destination:

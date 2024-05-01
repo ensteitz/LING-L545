@@ -19,6 +19,73 @@ def is_utf8_encoded(wiki):
         return False
 
 def replace_unicode_chars(word):
+    # Check to see if the word contains any of the Unicode characters to be replaced
+    for char in chars_to_replace:
+        if char in word:
+            # Change the encoding to the standard space character U+0020
+            word = word.replace(char, "\u0020")
+    return word
+
+def fix_encoding(wiki, encoded):
+    # Read the entire content of the file
+    with open(wiki, 'r', encoding='utf-8') as file:
+        content = file.read()
+
+    # Process each word and replace Unicode characters if found
+    modified_content = replace_unicode_chars(content)
+
+    # Print the modified content with encoding transformations
+    print(modified_content)
+
+    # Save the modified content to the new file
+    with open(encoded, 'w', encoding='utf-8') as file:
+        file.write(modified_content)
+
+wiki = 'verified_alphabet_wiki.txt'
+encoded = 'encoded_wiki.txt'
+
+chars_to_replace = [
+    "\u00A0", "\u1680", "\u2000", "\u2001", "\u2002",
+    "\u2003", "\u2004", "\u2005", "\u2006", "\u2007",
+    "\u2008", "\u2009", "\u200A", "\u202F", "\u205F",
+    "\u3000"
+]
+
+# Just a quick check to ensure proper encoding before trying to process the other functions
+if is_utf8_encoded(wiki):
+    print(f"{wiki} is encoded in UTF-8.")
+else:
+    print(f"{wiki} is not encoded in UTF-8.")
+
+# Process the functions and save the result in the output file
+fix_encoding(wiki, encoded)
+print(f"Unicode characters replaced successfully in {encoded}.")
+
+
+
+
+
+
+
+
+
+
+
+
+
+'''
+import sys
+import re
+
+def is_utf8_encoded(wiki):
+    try:
+        with open(wiki, 'r', encoding='utf-8') as file:
+            file.read()
+        return True
+    except UnicodeDecodeError:
+        return False
+
+def replace_unicode_chars(word):
     # Check to see if there are any alternate spaces
     for char in chars_to_replace:
         if char in word:
@@ -60,3 +127,4 @@ else:
 # Fix later
 fix_encoding(wiki, encoded)
 print(f"Unicode characters replaced successfully in {encoded}.")
+'''
