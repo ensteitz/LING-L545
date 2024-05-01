@@ -1,3 +1,8 @@
+'''
+I spent a lot of time making sure these expressions actually gave output.This involved completing a literature review on regular expressions.
+The papers I read often and took inspiration from are cited in the README.md.
+'''
+
 import re
 import sys
 

@@ -20,3 +20,6 @@
 
     `cat encoded\_wiki.txt | python3 segmenter.py > segmented\_wiki.txt`
 
+## References:
+
+1. Backurs, A., & Indyk, P. (2016, October). Which regular expression patterns are hard to match?. In 2016 IEEE 57th Annual Symposium on Foundations of Computer Science (FOCS) (pp. 457-466). IEEE.
