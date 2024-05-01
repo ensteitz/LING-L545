@@ -18,3 +18,4 @@
 
 ## References:
 
+1. [Link]https://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST
