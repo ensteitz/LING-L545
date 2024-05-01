@@ -1,3 +1,6 @@
+# Incredibly old skeleton for a tokenizer model I dug up from last semester in LING-L555
+# Doesn't have much relevence. I used it as a guide for my much better code this semester
+
 import sys
 
 line = sys.stdin.readline()
