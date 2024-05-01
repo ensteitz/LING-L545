@@ -1,0 +1,69 @@
+Multichar_Symbols
+
+%<n%>	! Noun
+%<voc%> ! Vocative
+%<loc%> ! Locative
+%<nom%> ! Nominative
+%<acc%> ! Accusative
+%<gen%> ! Genitive
+%<dative%> ! Dative
+%<locins%> ! Locative Instrumental
+%<inst%> ! Instrumental
+%{이%} ! Used with final consonant
+%{을%} ! Used with final consonant
+%{으로%} ! Used with final consonant
+
+LEXICON Root
+
+Noun_Stems ; ! To help edit all the options
+
+
+LEXICON LOC
+
+%<n%>: CASE_Loc ;
+
+LEXICON CASE_Loc
+
+%<voc%>: # ; ! Used to say the name of the noun
+%<nom%>:%>%{이%} # ; ! Need to make twol rule for 이/가 add 2nd to multi
+%<acc%>:%>%{을%} # ; ! Need to make twol rule for 을/를 add 2nd to multi
+%<gen%>:%>%의 # ; ! Indicates posession
+%<dative%>:%>%에 # ; ! Indicates location of an action or existence
+%<loc%>:%>%에서 # ; ! Indicates the location that an action took place
+%<locins%>:%>%{으로%} # ; ! Need to make twol rule for 으로/로 add 2nd to multichars
+
+LEXICON NON_LOC
+
+%<n%>: CASE_Non_Loc ;
+
+LEXICON CASE_Non_Loc
+
+%<voc%>: # ; ! Used to say the name of the noun
+%<nom%>:%>%{이%} # ; ! Need to make twol rule for 이/가
+%<acc%>:%>%{을%} # ; ! Need to make twol rule for 을/를
+%<gen%>:%>%의 # ; ! Indicates posession
+%<ins%>:%>%{으로%} # ; ! Need to make twol rule for 으로/로
+
+
+LEXICON Noun_Stems
+
+학교:학교 LOC ; ! "school"
+집:집 LOC ; ! "home"
+병원:병원 LOC ; ! "hospital"
+산:산 LOC ; ! "mountain"
+바다:바다 LOC ; ! "ocean"
+사람:사람 NON_LOC ; ! "person"
+고양이:고양이 NON_LOC ; ! "cat"
+개:개 NON_LOC ; ! "dog"
+꽃:꽃 NON_LOC ; ! "flower"
+나무:나무 NON_LOC ; ! "tree"
+컴퓨터:컴퓨터 NON_LOC ; ! "computer"
+책:책 NON_LOC ; ! "book"
+음식:음식 NON_LOC ; ! "food"
+차:차 NON_LOC ; ! "car"
+옷:옷 NON_LOC ; ! "clothes"
+친구:친구 NON_LOC ; ! "friend"
+시간:시간 NON_LOC ; ! "time"
+사진:사진 NON_LOC ; ! "time"
+돈:돈 NON_LOC ; ! "money"
+음악:음악 NON_LOC ; ! "music"
