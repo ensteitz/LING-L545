@@ -25,4 +25,7 @@
 
     `cat encoded_wiki.txt`
 
+## References:
 
+1. George, A. (2022). Python Text Mining: Perform Text Processing, Word Embedding, Text Classification and Machine Translation (English Edition). BPB Publications.
+2. McNeil, J. (2010). Python 2.6 Text Processing Beginners Guide. Packt Publishing.
