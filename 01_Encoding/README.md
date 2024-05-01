@@ -3,7 +3,7 @@
 ## Instructions:
 1. In order to use this code, please run the file `encoding.py` through the command line:
 
-    cat wiki.txt | python3 encoding.py
+    `cat wiki.txt | python3 encoding.py`
 
 
    This will result in the text outputting to stdout. Optionally, as I did, you can save the results in a file called `verified_alphabet_wiki.txt` through the following line of code:
