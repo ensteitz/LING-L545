@@ -9,9 +9,12 @@ Multichar_Symbols
 %<dative%> ! Dative
 %<locins%> ! Locative Instrumental
 %<inst%> ! Instrumental
-%{이%} ! Used with final consonant
-%{을%} ! Used with final consonant
-%{으로%} ! Used with final consonant
+%{이%} ! Used with preceeding final consonant ex. "집이"
+%{가%} ! Used with preeceding final vowel ex. "학교가"
+%{을%} ! Used with preceeding final consonant ex. "집을"
+%{를%} ! Used with preceeding final vowel ex. "학교를"
+%{으로%} ! Used with final consonant ex. "집으로"
+%{로%} ! Used with preceeding final vowel ex. "학교로"
 
 LEXICON Root
 
@@ -67,3 +70,4 @@ LEXICON Noun_Stems
 사진:사진 NON_LOC ; ! "time"
 돈:돈 NON_LOC ; ! "money"
 음악:음악 NON_LOC ; ! "music"
+
