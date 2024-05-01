@@ -1,6 +1,6 @@
-## Segmentation Practical:
+# Segmentation Practical:
 
-# Instructions:
+## Instructions:
 
 The results from the encoding practical were copied and moved here. They are stored in the file encoded\_wiki.txt .
 
@@ -12,7 +12,7 @@ cat encoded_wiki.txt | python3 segmenter.py
 
 In my language, Sardinian, there were several unique challenges for segmentation --particularly in response to sentence ambiguities. Most of these were resolved. To see more, look at the note at the beginning of the segmenter.py file.
 
-# Results:
+## Results:
 I stored the results of this command in the file segmented\_wiki.txt.
 
 If you wanted to store it in a file for yoourself on the command line, please run this line through terminal:
