@@ -7,10 +7,12 @@
 
 
    This will result in the text outputting to stdout. Optionally, as I did, you can save the results in a file called verified\_alphabet\_wiki.txt through the following line of code:
-   
-   '''
-   cat wiki.txt | python3 encoding.py > verified_alphabet_wiki.txt
-   '''
 
 
-2. Next, I made a python file to check the encoding of whitespaces. This is seen in checker.py . To run this code, i
+    `cat wiki.txt | python3 encoding.py > verified_alphabet_wiki.txt`
+
+    \Lastly, to save this code to stderr, use the following line of code ion the command line:
+
+    `cat wiki.txt | python3 encoding.py > verified_alphabet_wiki.txt 2> wiki.valid`
+
+2. Next, I made a python file to check the encoding of whitespaces. This is seen in checker.py . To run this code, use the following 
