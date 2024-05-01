@@ -4,7 +4,12 @@ https://cl.indiana.edu/~ftyers/courses/2024/Spring/L-545/
 
 `Rin Steitz`
 
-As of April 30th, 2024, the Unix practical is complete, and the wiki.valid file contains all the submissions for 
+## Updated practicals in GitHub:
+ 1. Unix
+ 2. Encoding
+ 3. Segmentation
 
-The tokenization and Segmentation
-Currently, the initial-consonants.hist practical is complete. That should be uploaded to the practicals by now.
+## Need to push changes:
+ 1. Tokenization
+ 2. Morphology
+ 3. Disambiguation
