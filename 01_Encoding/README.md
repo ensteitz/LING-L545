@@ -3,6 +3,7 @@
 ## Instructions:
 1. In order to use this code, please run the file `encoding.py` through the command line:
 
+
     `cat wiki.txt | python3 encoding.py`
 
 
@@ -20,8 +21,13 @@
 
 2. Next, I made a python file to check the encoding of whitespaces. This is seen in `checker.py`. To run this code, use the following in terminal:
 
+
     `cat verified_alphabet_wiki.txt | python3 checker.py > encoded_wiki.txt`
+
 
    The result should store the content of `checker.py` in the file `encoded_wiki.txt`. To check if it worked, please run the following in terminal:
 
+
     `cat encoded_wiki.txt`
+
+
