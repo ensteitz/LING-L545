@@ -1,19 +1,7 @@
 # Disambiguation Practical:
 
-## Instructions: need to be updated
+## Instructions:
 
-   To see the result of the ... do the following line in terminal:
+   To see the result of the PRACTICAL, do the following line in terminal:
 
-    `insert code`
-
-
-## Results: need to be updated
-
-   I stored the results of this command in the file `file name`.
-
-   More instructions:
-
-    `insert code`
-
-
-## References:
+    `cat train.txt | vislcg3 --trace --grammar eng.cg3`
