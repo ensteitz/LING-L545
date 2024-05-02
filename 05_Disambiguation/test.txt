@@ -1,0 +1,87 @@
+"<Greco-Roman>"
+	"Greco-Roman" adj
+"<geographers>"
+	"geographer" n pl
+"<of>"
+	"of" pr
+"<the>"
+	"the" det def sp
+"<first>"
+;	"first" adv
+	"first" adj ord
+"<century>"
+	"century" n sg
+"<AD>"
+	"AD" abbr
+"<are>"
+	"be" vbser pres
+"<unanimous>"
+	"unanimous" adj
+"<in>"
+;	"in" adv
+	"in" pr
+"<associating>"
+;	"associate" vblex pprs
+;	"associate" vblex subs
+	"associate" vblex ger
+"<the>"
+	"the" det def sp
+"<Bastarnae>"
+	"Bastarnae" n pl
+"<and>"
+	"and" cnjcoo
+"<Peucini>"
+	"Peucini" n pl
+"<with>"
+	"with" pr
+"<Germanic>"
+	"Germanic" adj
+"<peoples>"
+	"people" n pl
+;	"peoples" n pl
+"<,>"
+	"," cm
+"<and>"
+	"and" cnjcoo
+"<one>"
+	"one" num sg
+;	"one" prn dem mf sg
+"<source>"
+	"source" n sg
+"<,>"
+	"," cm
+"<Tacitus>"
+	"Tacitus" np cog sg
+"<,>"
+	"," cm
+"<specifies>"
+	"specify" vblex pres p3 sg
+"<that>"
+	"that" cnjsub
+;	"that" det dem sg
+;	"that" prn dem mf sg
+;	"that" prn rel an mf sp
+"<they>"
+	"prpers" prn subj p3 mf pl
+"<spoke>"
+	"speak" vblex past
+"<a>"
+	"a" det ind sg
+"<language>"
+	"language" n sg
+"<like>"
+;	"like" adj
+;	"like" cnjsub
+	"like" pr
+;	"like" vblex inf
+;	"like" vblex pres
+;	"like" vblex imp
+"<the>"
+	"the" det def sp
+"<Germanic>"
+	"Germanic" adj
+"<peoples>"
+	"people" n pl
+;	"peoples" n pl
+"<.>"
+	"." sent

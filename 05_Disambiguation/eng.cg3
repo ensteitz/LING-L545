@@ -1,0 +1,90 @@
+DELIMITERS = "." ;
+
+LIST Prop = np ;
+LIST Unlike = "unlike" ;
+LIST V = vblex ;
+LIST Pres = pres ;
+LIST N = n ;
+LIST Adj = adj ;
+LIST Sg = sg ;
+LIST Pron = prn ;
+LIST Pl1 = (p1 pl) ;
+LIST Pl2 = (p2 pl) ;
+LIST Pl3 = (p3 pl) ;
+LIST Sg1 = (p1 sg) ;
+LIST Sg2 = (p2 sg) ;
+LIST Sg3 = (p3 sg) ;
+LIST Cm = cm ;
+LIST Det = det ;
+LIST Pro = pr ;
+LIST Def = def ;
+LIST Adv = adv ;
+LIST Pl = pl ;
+LIST Past = past ;
+LIST PP = pp ;
+LIST Have = "have" ;
+LIST Rel = rel ;
+
+LIST By = "by" ;
+LIST Be = "be" ;
+
+LIST Modal = "can" "would" "could" "should" ;
+
+SET Finite = Past | Pres ;
+
+
+
+SECTION
+
+# Remove the adjective reading of "unlike" if it is
+# followed by a proper noun
+REMOVE Adj IF (0 Unlike) (1 Prop) ;
+  # ... unlike Livy ...
+
+REMOVE Adj IF (0 Adj) (-1 Adj) (1 Pr) ;
+# "Contemporary"
+
+SELECT P3 if (-1 Rel) ;
+# 3rd pers ambiguity
+
+SELECT N + Pl IF (1 Finite OR Modal) ;
+
+REMOVE Finite IF (1 Finite) ;
+# Redundant
+
+REMOVE Finite IF (-1C Finite) ;
+
+SELECT N IF (-1 Adj) (1 V) ;
+# Classic Noun position
+
+REMOVE V IF (-1C Adj) ;
+# Classic agreement
+
+SELECT N + Sg IF (-1 Det + Def) (0 N OR Adj OR Adv) (1 Cm) ; 
+# Clears "writing" ambiguity
+
+REMOVE N + Sg (0 N OR Adj) (1 Adj OR N + Sg) ;
+
+
+REMOVE N + Sg (-1 Cm LINK -1 Adj) (0 N OR Adj) (1 Cm LINK 1 Adj) ;
+# The one I put on my midterm that we revised in class
+
+REMOVE N + Sg (0 N OR Adj) (1 Cm LINK 1 Adj LINK 1 Cm) ;
+# This one too
+
+REMOVE Itg IF (-1 Cm) (1 Be);
+# "who" ambiguity
+
+
+REMOVE V + Sg1 IF (NEGATE -1* Pron + Sg1) ;
+REMOVE V + Pl1 IF (NEGATE -1* Pron + Pl1) ;
+REMOVE V + Sg2 IF (NEGATE -1* Pron + Sg2) ;
+REMOVE V + Pl2 IF (NEGATE -1* Pron + Pl2) ;
+
+SELECT PP IF (-1 Be) (1 By) ;
+# "contradicted"
+
+REMOVE Adv IF (1 N OR Np OR Det) ;
+# "by" adv ambiguity
+
+
