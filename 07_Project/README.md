@@ -1,6 +1,6 @@
 # Final Project
 
-  For my project, I wanted to merge text cleaning and segmentation with data scraped from a social media platform.
+  For my project, I wanted to merge text cleaning and segmentation with data scraped from a social media platform using Reddit's Python Reddit API Wrapper (PRAW) and Valence Aware Dictionary and sEntiment Reasoner (VADER).
 
 
 ## Collecting the data:
@@ -40,7 +40,7 @@
 
     sed '/a-zA-Z/!d' \< mod_comments.txt \> mod2\_comments.txt
     sed '/\\[deleted\\]/d' \< mod2_comments.txt \> mod3\_comments.txt
-    sed '/[^https:\\/\\/.*]/d' \< mod3\_comments.txt \> clean\_comments.txt
+    sed '/[^https:\/\/.*]/d' \< mod3\_comments.txt \> clean\_comments.txt
 
    The result is a TXT file that puts each sentence on a new line for sentiment analysis and deletes hyperlinks.
 
@@ -64,4 +64,8 @@
 
 
 ## Data Visualization:
-PNGs of data visualization models are included in this folder. The most important ones are the Upvotes vs Compound Sentiment Score, Comments by Time of Day, and Comments by Sentiment Category.
+   PNGs of data visualization models are included in this folder. The most important ones are the Upvotes vs Compound Sentiment Score, Comments by Time of Day, and Comments by Sentiment Category.
+
+## References:
+   1. [Link] https://praw.readthedocs.io/en/latest/getting_started/quick_start.html
+   2. [Link] https://github.com/cjhutto/vaderSentiment
