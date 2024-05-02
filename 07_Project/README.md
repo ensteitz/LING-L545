@@ -1,22 +1,43 @@
 # Final Project
 
-For my project, I wanted to merge text cleaning and segmentation with data scraped from a social media platform.
+  For my project, I wanted to merge text cleaning and segmentation with data scraped from a social media platform.
+
+## Instructions: need to be updated
+
+   To see the result of the ... do the following line in terminal:
+
+    `insert code`
+
+
 
 ## Collecting the data:
-To begin, I coded get\_comments.py to scrape data from this url: 
- - [Link] (https://www.reddit.com/r/IsraelPalestine/comments/172w9gt/i_have_changed_my_mind_about_the_israelpalestine/?sort=new)
- - This outputs the files df\_comments.csv and comments.txt
+
+   To begin, I coded `get_comments.py` to scrape data from this url: 
+    [Link] https://www.reddit.com/r/IsraelPalestine/comments/172w9gt/i_have_changed_my_mind_about_the_israelpalestine/?sort=new
+
+   I then ran it through terminal: 
+
+    `python3 get_comments.py`
+
+   The result is the output of the files `df_comments.csv` and `comments.txt`
 
 
 ## Cleaning the data:
-From there, I went about cleaning the CSV file. This is done in clean_csv.py.
- - This code removes unnecessary lines from the data such as hyperlinks, AutoModerator comments, and empty lines.
-The output is a file called df_clean_comments.csv
 
-In addition to ensuring the coding of the data is correct, I had noticed when scraping that the data that there was a marker in front of sentences that were replies to comments. While this would be great to keep for an in depth analysis surrounding specific conversations, it is not needed for this analysis. Therefore, they have been removed for text cleaning purposes.
+   From there, I went about cleaning the CSV file. This is done in `clean_csv.py` and running the following line in terminal:
 
-The removal of the reply marker '>' at the beginning of sentences was done through through terminal with the following pipeline command:
- - cat comments.txt | sed 's/^>//g' > mod_comments.txt
+    `python3 clean_csv.py`
+
+   This code removes unnecessary lines from the data such as hyperlinks, AutoModerator comments, and empty lines.
+
+   The output is a file called `df_clean_comments.csv`
+
+   In addition to ensuring the coding of the data is correct, I had noticed when scraping that the data that there was a marker in front of sentences that were replies to comments. While this would be great to keep for an in depth analysis surrounding specific conversations, it is not needed for this analysis. Therefore, they have been removed for text cleaning purposes.
+
+   The removal of the reply marker '>' at the beginning of sentences was done through through terminal with the following pipeline command:
+
+    `cat comments.txt | sed 's/^>//g' > mod_comments.txt`
+
 
 ## Segmenting the data:
 

@@ -16,9 +16,9 @@ df["compound_score"] = df["sentiment_scores"].apply(lambda x: x["compound"])
 
 # Turn scores into strings and save to df
 def categorize_sentiment(score):
-    if score >= 0.25:
+    if score >= 0.05:
         return 'Positive'
-    elif score <= -0.25:
+    elif score <= -0.05:
         return 'Negative'
     else:
         return 'Neutral'
