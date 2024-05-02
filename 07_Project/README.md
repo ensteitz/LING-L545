@@ -41,27 +41,35 @@
 
 ## Segmenting the data:
 
-In this step, some of the data in the text file was segmented: each sentence is returned on a new line for text analysis by breaking down the comment bodies line per line in a text file.
+   In this step, some of the data in the text file was segmented: each sentence is returned on a new line for text analysis by breaking down the comment bodies line per line in a text file.
 
-This was done through the command line:
-1. sed '/a-zA-Z/!d' \< mod_comments.txt \> mod2\_comments.txt
-2. sed '/\\[deleted\\]/d' \< mod2_comments.txt \> mod3\_comments.txt
-3. sed '/[^https:\\/\\/.*]/d' \< mod3\_comments.txt \> clean\_comments.txt
-The result is a TXT file that puts each sentence on a new line for sentiment analysis and deletes hyperlinks.
+   This was done through the command line::
+
+    ```
+    sed '/a-zA-Z/!d' \< mod_comments.txt \> mod2\_comments.txt
+    sed '/\\[deleted\\]/d' \< mod2_comments.txt \> mod3\_comments.txt
+    sed '/[^https:\\/\\/.*]/d' \< mod3\_comments.txt \> clean\_comments.txt
+    ```
+
+   The result is a TXT file that puts each sentence on a new line for sentiment analysis and deletes hyperlinks.
 
 ## Data Analysis:
-I then ran a few data analysis measures on the CSV file. This adds two columns to the CSV: sentiment\_score and time\_of\_day. These were added to make data visualization easier in the last step.
-A couple of other measures were computed:
-1. The timestamp for the first comment.
-2. The timestamp for the last comment.
-3. The amount of time that passed between the first and last comment accepted on the submission before being locked.
-4. The count for the most upvotes on one comment. 
-5. The count for the most downvotes on one comment.
+   I then ran a few data analysis measures on the CSV file. This adds two columns to the CSV: `sentiment_score` and `time_of_day`. These were added to make data visualization easier in the last step.
+   A couple of other measures were computed:
+    1. The timestamp for the first comment.
+    2. The timestamp for the last comment.
+    3. The amount of time that passed between the first and last comment accepted on the submission before being locked.
+    4. The count for the most upvotes on one comment. 
+    5. The count for the most downvotes on one comment.
 
-These counts are shown if you run analysis.py. You will also get a visual of the data frame. 
+   These counts are shown if you run analysis.py. You will also get a visual of the data frame. 
 
 ## Sentiment Analysis:
-Using VADER, sentiment analysis was performed on the text scraped from the original Reddit post. This was done through the file vader\_sa.py. The results were stored in the files sa\_clean\_comments.txt and df\_sa\_extralabels\_clean\_comments.csv.
+   Using VADER, sentiment analysis was performed on the text scraped from the original Reddit post. This was done through running the following through the command line:
+
+    `python3 vader_sa.py`
+
+   The results were stored in the files `sa_clean_comments.txt` and `df_sa_extralabels_clean_comments.csv`.
 
 
 ## Data Visualization:
