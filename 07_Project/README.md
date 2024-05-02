@@ -2,13 +2,6 @@
 
   For my project, I wanted to merge text cleaning and segmentation with data scraped from a social media platform.
 
-## Instructions: need to be updated
-
-   To see the result of the ... do the following line in terminal:
-
-    `insert code`
-
-
 
 ## Collecting the data:
 
@@ -17,7 +10,7 @@
 
    I then ran it through terminal: 
 
-    `python3 get_comments.py`
+    python3 get_comments.py
 
    The result is the output of the files `df_comments.csv` and `comments.txt`
 
@@ -26,7 +19,7 @@
 
    From there, I went about cleaning the CSV file. This is done in `clean_csv.py` and running the following line in terminal:
 
-    `python3 clean_csv.py`
+    python3 clean_csv.py
 
    This code removes unnecessary lines from the data such as hyperlinks, AutoModerator comments, and empty lines.
 
@@ -36,7 +29,7 @@
 
    The removal of the reply marker '>' at the beginning of sentences was done through through terminal with the following pipeline command:
 
-    `cat comments.txt | sed 's/^>//g' > mod_comments.txt`
+    cat comments.txt | sed 's/^>//g' > mod_comments.txt
 
 
 ## Segmenting the data:
@@ -45,11 +38,9 @@
 
    This was done through the command line::
 
-    ```
     sed '/a-zA-Z/!d' \< mod_comments.txt \> mod2\_comments.txt
     sed '/\\[deleted\\]/d' \< mod2_comments.txt \> mod3\_comments.txt
     sed '/[^https:\\/\\/.*]/d' \< mod3\_comments.txt \> clean\_comments.txt
-    ```
 
    The result is a TXT file that puts each sentence on a new line for sentiment analysis and deletes hyperlinks.
 
@@ -67,7 +58,7 @@
 ## Sentiment Analysis:
    Using VADER, sentiment analysis was performed on the text scraped from the original Reddit post. This was done through running the following through the command line:
 
-    `python3 vader_sa.py`
+    python3 vader_sa.py
 
    The results were stored in the files `sa_clean_comments.txt` and `df_sa_extralabels_clean_comments.csv`.
 
