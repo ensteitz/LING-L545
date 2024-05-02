@@ -1,19 +1,19 @@
 # Morphology Practical:
 
-## Instructions: need to be updated
+## Instructions:
 
-   To see the result of the ... do the following line in terminal:
+   To see the result of the practical, please view the files headed with `3kor`. This includes:
 
-    `insert code`
+    3kor.lexc
+    3kor.lexc.hfst
+    3kor.lexc.png
+    3kor.twol
+    3kor.twol.hfst
 
+   and
 
-## Results: need to be updated
-
-   I stored the results of this command in the file `file name`.
-
-   More instructions:
-
-    `insert code`
+    3kor.class.png
+    3kor.gen.hfst
 
 
 ## References:
